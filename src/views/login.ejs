@@ -1,0 +1,23 @@
+<%- include('./includes/header') %>
+<%- include('./includes/nav') %>
+
+    <main class="container">
+        <div class="login-container">
+            <h1>Bem-vindo de volta!</h1>
+            <%- include('./includes/messages') %>
+            <form action="/login" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label class="login-label" for="usuario">Nome de usuário:</label>
+                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome de usuário"
+                    aria-label="Nome de usuário" aria-describedby="basic-addon1" />
+                <label class="senha-label" for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" aria-label="Senha"
+                    aria-describedby="basic-addon1">
+                <a href="#" id="reset-passwd">Esqueceu sua senha?</a>
+                <button class="btn btn-success" id="login-button">Fazer Login</button>
+                <p id="create-account">Não tem uma conta? <a href="./register">Registre-se.</a></p>
+            </form>
+        </div>
+    </main>
+    
+<%- include('./includes/footer') %>

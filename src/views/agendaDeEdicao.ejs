@@ -1,0 +1,32 @@
+<%- include('./includes/header') %>
+<%- include('./includes/nav') %>
+
+<div class="container teste">
+        <div class="login-container">
+            <h1 class="text-center">Contato</h1>
+            <p class="text-center lead">Crie ou edite contatos:</p>
+            <%- include('./includes/messages') %>
+            <% if(contato.id) { %>
+                <form action="/contato/edit/<%= contato._id %>" method="post">
+            <% } else { %>
+                <form action="/contato/register" method="post">
+            <% }%>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label class="login-label" for="nome">Nome:</label>
+                <input value="<%= contato.nome %>" type="text" name="nome" id="nome" class="form-control cadastro-input" placeholder="Nome"
+                aria-label="Nome" aria-describedby="basic-addon1" />
+                <label class="senha-label" for="senha">Sobrenome:</label>
+                <input value="<%= contato.sobrenome %>" type="text" name="sobrenome" id="sobrenome" class="form-control cadastro-input" placeholder="Sobrenome" aria-label="Sobrenome"
+                aria-describedby="basic-addon1">
+                <label class="senha-label" for="senha">Email:</label>
+                <input value="<%= contato.email %>" type="email" name="email" id="Email" class="form-control cadastro-input" placeholder="Email" aria-label="Email"
+                aria-describedby="basic-addon1">
+                <label  class="senha-label" for="senha">Telefone:</label>
+                <input value="<%= contato.telefone %>" type="tel" name="telefone" id="telefone" class="form-control cadastro-input" placeholder="Telefone" aria-label="Telefone"
+                aria-describedby="basic-addon1">
+                <button class="btn btn-success" id="save-button">Salvar Contato</button>
+            </form>
+        </div>
+    </div>
+    
+<%- include('./includes/footer') %>
