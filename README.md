@@ -73,10 +73,14 @@ Após isso, você pode acessar o link informado e verificar se o projeto está f
 ## ⚠️ Problemas enfrentados
 
 ### Problema 1:
+Armazenamento da senha diretamente no banco de dados.
+* Como foi solucionado: Para evitar de armazenar a senha digitada pelo usuário diretamente no banco de dados, foi utilizado a biblioteca bcryptjs, que permite criptografar e descriptografar a senha quando necessário. Sendo assim, no banco de dados o que temos é uma string com o hash da senha, e não a senha propriamente dita.
+
+### Problema 2:
 O site não está responsivo, sendo assim, não será possível utiliza-lo em dispositivos móveis.
 * Como solucionar: Adicionar configurações para transformar a exibição do site conforme necessário, dependendo do tamanho de cada tela.
 
-### Problema 2:
+### Problema 3:
 Provavelmente (Não testei para ter a certeza, mas é quase certo que sim) é possível editar e deletar contatos de outras pessoas, se houver o ID do contato.
 * Como solucionar: Fazer uma verificação para confirmar que quem está fazendo a requisição de update ou delete é a pessoa que criou o contato.
 
